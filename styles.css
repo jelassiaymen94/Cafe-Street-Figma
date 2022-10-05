@@ -129,7 +129,6 @@ header::before {
 	border-radius: 33px;
 	padding: 1.2rem 3.2rem;
 	color: #fff;
-
 	font-size: 1.4rem;
 	font-weight: 600;
 }
@@ -192,7 +191,7 @@ header::before {
 .popular__content__cards::after {
 	content: "";
 	position: absolute;
-	background: url("../img/popular_bg.png");
+	background: url("img/popular_bg.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -232,25 +231,6 @@ header::before {
 	display: flex;
 	align-items: center;
 	gap: 0.4rem;
-}
-
-.content__card__border__star {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 7rem;
-	height: 3.4rem;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	background-color: rgba(255, 255, 255, 0.4);
-	backdrop-filter: blur(2px);
-	border-radius: 27px;
-	position: absolute;
-	top: 40px;
-	left: 30px;
-}
-
-.content__card__border__star img {
-	width: 1.4rem;
 }
 
 .content__card__text {
@@ -399,4 +379,34 @@ header::before {
 	color: #000;
 	margin-bottom: 2rem;
 	position: relative;
+}
+
+.about__us__text h3 {
+	max-width: 35rem;
+	font-weight: 600;
+	font-size: 2.4rem;
+	line-height: 3.6rem;
+	letter-spacing: 0.04em;
+	margin-bottom: 1.6rem;
+}
+
+.about__us__text p {
+	max-width: 48rem;
+	font-weight: 400;
+	font-size: 1.8rem;
+	line-height: 2.7rem;
+	letter-spacing: 0.04em;
+	color: #7e7d7a;
+	margin-bottom: 3rem;
+}
+
+.about__us__text button {
+	padding: 1rem 2.4rem;
+	background: #2f2105;
+	border-radius: 3.3rem;
+	font-weight: 700;
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	color: #f4ae26;
+	cursor: pointer;
 }
