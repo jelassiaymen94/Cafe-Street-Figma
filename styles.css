@@ -66,6 +66,11 @@ header::before {
 	padding: 1rem 0 1rem 5.2rem;
 	border-radius: 5.4rem;
 	filter: drop-shadow(6px 2px 24px rgba(0, 0, 0, 0.13));
+	border: 0;
+}
+
+.hero__search input:focus {
+	outline: none;
 }
 
 .hero__search__input {
@@ -76,7 +81,7 @@ header::before {
 	position: absolute;
 	z-index: 1;
 	left: 12px;
-	top: 11px;
+	top: 6px;
 }
 
 .hero__search input::placeholder {
