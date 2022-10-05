@@ -171,7 +171,7 @@ header::before {
 	content: "";
 	display: inline-block;
 	position: absolute;
-	background: var(--primary-color);
+	background: #ff902b;
 	width: 7.4rem;
 	height: 4px;
 	border-radius: 12px;
@@ -306,4 +306,97 @@ header::before {
 	line-height: 2.2rem;
 	letter-spacing: 0.06em;
 	color: #ffd28f;
+}
+
+.service {
+	max-width: 116rem;
+	margin: 20rem auto 12rem;
+}
+
+.service h2 {
+	font-size: 3.2rem;
+	font-weight: 600;
+	line-height: 4.8rem;
+	letter-spacing: 0.04em;
+	margin-bottom: 3.2rem;
+	position: relative;
+}
+
+.service h2 span::before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	background: #ff902b;
+	width: 12.3rem;
+	height: 4px;
+	border-radius: 12px;
+	margin-top: 6px;
+	bottom: 0;
+}
+
+.services__imgs {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.service__img {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2.4rem 1.6rem;
+}
+
+.service__img img {
+	margin-bottom: 1.6rem;
+}
+
+.service__img h3 {
+	font-size: 2.4rem;
+	line-height: 3.6rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	color: #2f2105;
+	margin-bottom: 0.8rem;
+}
+
+.service__img p {
+	font-weight: 400;
+	font-size: 1.8rem;
+	line-height: 2.7rem;
+	letter-spacing: 0.04em;
+}
+
+.about__us {
+	margin-top: 20rem;
+	margin-bottom: 12rem;
+}
+
+.about__us__m {
+	background-image: url("img/bg_about_us.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 48rem;
+}
+
+.about__us__content {
+	display: flex;
+	align-items: center;
+	gap: 16rem;
+	max-width: 110rem;
+	margin: 0 auto;
+}
+
+.about__us__content img {
+	margin-top: -80px;
+}
+
+.about__us__text h2 {
+	font-weight: 500;
+	font-size: 3.3rem;
+	line-height: 4.8rem;
+	letter-spacing: 0.04em;
+	color: #000;
+	margin-bottom: 2rem;
+	position: relative;
 }
