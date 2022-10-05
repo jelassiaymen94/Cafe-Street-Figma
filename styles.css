@@ -28,6 +28,7 @@ header::before {
 .hero__content {
 	max-width: 116rem;
 	margin: 0 auto;
+	padding-top: 4rem;
 }
 
 .hero__content nav {
@@ -97,14 +98,14 @@ header::before {
 	font-size: 4.8rem;
 	line-height: 7.2rem;
 	font-weight: 600;
+	color: #261b04;
+}
+
+.header__content__text h1 span {
 	color: #ff902b;
 }
 
-.hero__content__text h1 span {
-	color: #ff902b;
-}
-
-.hero__content__text p {
+.header__content__text p {
 	font-size: 1.8rem;
 	max-width: 40rem;
 	line-height: 2.7rem;
@@ -142,4 +143,167 @@ header::before {
 
 .header__content__img {
 	max-width: 53rem;
+}
+
+.header__content__img img {
+	display: block;
+	max-width: 100%;
+}
+
+.popular__content {
+	margin: 0 auto;
+	max-width: 116rem;
+}
+
+.popular__content h2 {
+	font-size: 3.2rem;
+	font-weight: 600;
+	line-height: 4.8rem;
+	letter-spacing: 0.04em;
+	color: #000;
+}
+
+.popular__content h2 span {
+	position: relative;
+}
+
+.popular__content h2 span::before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	background: var(--primary-color);
+	width: 7.4rem;
+	height: 4px;
+	border-radius: 12px;
+	margin-top: 6px;
+	bottom: 0;
+}
+
+.popular__content__cards {
+	max-width: 114rem;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 3.2rem;
+	position: relative;
+}
+
+.popular__content__cards::after {
+	content: "";
+	position: absolute;
+	background: url("../img/popular_bg.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 127rem;
+	height: 37rem;
+	z-index: -1;
+	top: 87px;
+	left: -63px;
+}
+
+.content__card__border {
+	padding: 0.6rem;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.4) 0%,
+		rgba(255, 255, 255, 0.7) 100%
+	);
+	backdrop-filter: blur(2px);
+	border-radius: 1.2rem;
+}
+
+.content__card {
+	max-width: 34rem;
+	background-color: #fff;
+	filter: drop-shadow(10px 10px 32px rgba(0, 0, 0, 0.25));
+	padding: 2.4rem 1.8rem;
+	border-radius: 1.2rem;
+	position: relative;
+}
+
+.popular__content__card__decoration {
+	background: #fff;
+	width: 6.2rem;
+	height: 2.6rem;
+	border-radius: 5rem;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.content__card__border__star {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 7rem;
+	height: 3.4rem;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, 0.4);
+	backdrop-filter: blur(2px);
+	border-radius: 27px;
+	position: absolute;
+	top: 40px;
+	left: 30px;
+}
+
+.content__card__border__star img {
+	width: 1.4rem;
+}
+
+.content__card__text {
+	max-width: 28rem;
+	margin: 0 auto;
+}
+
+.popular__content__card__title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 2rem;
+	margin-bottom: 1.2rem;
+}
+
+.popular__content__card__title h3 {
+	font-size: 2.4rem;
+	font-weight: 600;
+	line-height: 3.6rem;
+	letter-spacing: 0.04em;
+	color: #2f2105;
+}
+
+.popular__content__card__title p {
+	font-weight: 700;
+	font-size: 2.4rem;
+	line-height: 3.6rem;
+	letter-spacing: 0.04em;
+	color: #2f2105;
+}
+
+.popular__content__card__buy {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.popular__content__card__buy__temperature {
+	display: flex;
+	gap: 2.4rem;
+}
+
+.popular__content__card__buy__temperature a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 6.5rem;
+	height: 3.3rem;
+	border: 2px solid #ffd28f;
+	padding: 1rem;
+	border-radius: 0.9rem;
+	font-size: 1.5rem;
+	line-height: 2.2rem;
+	letter-spacing: 0.06em;
+	color: #ffd28f;
 }
