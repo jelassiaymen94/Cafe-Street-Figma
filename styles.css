@@ -1,0 +1,145 @@
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	font-size: 1.6rem;
+}
+
+header {
+	margin-bottom: 14rem;
+}
+
+header::before {
+	content: "";
+	top: 0;
+	left: 0;
+	position: absolute;
+	background: url(img/bg-image-header.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 80rem;
+	z-index: -1;
+}
+
+.hero__content {
+	max-width: 116rem;
+	margin: 0 auto;
+}
+
+.hero__content nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.hero__content nav ul {
+	display: flex;
+	gap: 3.2rem;
+	list-style: none;
+}
+
+.hero__content li a {
+	text-decoration: none;
+	font-size: 1.8rem;
+	font-weight: 400;
+	line-height: 2.7rem;
+	color: #000;
+}
+
+.hero__content li a.active {
+	color: #ff902b;
+}
+
+.hero__search {
+	display: flex;
+	gap: 2.4rem;
+}
+
+.hero__search input {
+	background-color: #fff;
+	padding: 1rem 0 1rem 5.2rem;
+	border-radius: 5.4rem;
+	filter: drop-shadow(6px 2px 24px rgba(0, 0, 0, 0.13));
+}
+
+.hero__search__input {
+	position: relative;
+}
+
+.hero__search img:first-child {
+	position: absolute;
+	z-index: 1;
+	left: 12px;
+	top: 11px;
+}
+
+.hero__search input::placeholder {
+	font-size: 1.2rem;
+	line-height: 18px;
+	font-weight: 400;
+	color: #929292;
+}
+
+.header__content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 8rem;
+}
+
+.header__content__text h1 {
+	max-width: 48rem;
+	font-size: 4.8rem;
+	line-height: 7.2rem;
+	font-weight: 600;
+	color: #ff902b;
+}
+
+.hero__content__text h1 span {
+	color: #ff902b;
+}
+
+.hero__content__text p {
+	font-size: 1.8rem;
+	max-width: 40rem;
+	line-height: 2.7rem;
+	color: #7e7d7a;
+	margin: 2.4rem 0 3.2rem;
+}
+
+.header__content__button {
+	display: flex;
+	align-items: center;
+	gap: 2.6rem;
+}
+
+.header__content__button button {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border-radius: 3.3rem;
+	background-color: #2f2105;
+	box-shadow: 0px 4px 32px rgba(223, 195, 124, 0.25);
+	border-radius: 33px;
+	padding: 1.2rem 3.2rem;
+	color: #fff;
+
+	font-size: 1.4rem;
+	font-weight: 600;
+}
+
+.header__content__button p {
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: 1.8rem;
+	color: #f4ae26;
+}
+
+.header__content__img {
+	max-width: 53rem;
+}
