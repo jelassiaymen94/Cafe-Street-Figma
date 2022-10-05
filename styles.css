@@ -410,3 +410,10 @@ header::before {
 	color: #f4ae26;
 	cursor: pointer;
 }
+
+.special__menu__cards {
+	display: flex;
+	gap: 3.2rem;
+	justify-content: baseline;
+	flex-wrap: wrap;
+}
