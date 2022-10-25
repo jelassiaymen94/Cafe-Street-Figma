@@ -422,3 +422,8 @@ header::before {
 	justify-content: baseline;
 	flex-wrap: wrap;
 }
+
+#add-to-cart {
+	width: 43px;
+	height: 43px;
+}
