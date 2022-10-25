@@ -26,5 +26,3 @@ cart.forEach((button) => {
 // create a <p> element next to the cart icon
 
 // append the <p> element to the cart icon
-
-cartCountElement.innerHTML = "1";
