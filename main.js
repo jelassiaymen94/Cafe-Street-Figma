@@ -8,7 +8,7 @@ cart.forEach((button) => {
 	button.addEventListener("click", (e) => {
 		// append cartCountElement to ".hero__search"
 		document.querySelector(".hero__search").appendChild(cartCountElement);
-		// on every click, switch back and forth between the classes of "add-to-cart" and "added-to-cart"
+		// on every click, toggle "clicked" class
 		button.classList.toggle("clicked");
 		// if the button has the class of "clicked", change the src to img/clicked.png
 		if (button.classList.contains("clicked")) {
@@ -23,6 +23,48 @@ cart.forEach((button) => {
 	});
 });
 
-// create a <p> element next to the cart icon
+// get all h3 elements inside of the "popular__content__card__title" class
+const popularContentCardTitle = document.querySelectorAll(
+	".popular__content__card__title h3"
+);
+const popularContentCardPrice = document.querySelectorAll(
+	".popular__content__card__title p"
+);
+const specialCardTitle = document.querySelectorAll(".special__card__title h3");
+const specialCardPrice = document.querySelectorAll(".special__card__title p");
+// loop through the popularContentCardTitle array and get the text content of each element and push it into the popularContentCardTitleArray
+const popularContentCardTitleArray = [];
+popularContentCardTitle.forEach((title) => {
+	popularContentCardTitleArray.push(title.textContent);
+});
+specialCardTitle.forEach((title) => {
+	popularContentCardTitleArray.push(title.textContent);
+});
 
-// append the <p> element to the cart icon
+const popularContentCardPriceArray = [];
+
+popularContentCardPrice.forEach((price) => {
+	popularContentCardPriceArray.push(price.textContent);
+});
+
+const specialCardPriceArray = [];
+
+specialCardPrice.forEach((price) => {
+	specialCardPriceArray.push(price.textContent);
+});
+
+// associate the popularContentCardTitleArray with the popularContentCardPriceArray into an object
+const popularContentCardObject = {};
+
+popularContentCardTitleArray.forEach((title, index) => {
+	popularContentCardObject[title] = popularContentCardPriceArray[index];
+});
+
+specialCardTitle.forEach((title, index) => {
+	popularContentCardObject[title.textContent] = specialCardPriceArray[index];
+});
+
+// append each object key and value to local storage
+for (const [key, value] of Object.entries(popularContentCardObject)) {
+	localStorage.setItem(key, value);
+}
