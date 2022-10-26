@@ -85,20 +85,40 @@ const span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 cartCount.onclick = function () {
 	modal.style.display = "block";
-	// insert the cartArray into the modal
-	cartList.innerHTML = "";
+	// insert the cartArray into the modal and add a remove button
 	cartArray.forEach((item) => {
-		cartList.innerHTML += `
-		<div class="modal__item">
-			<img src="${item.img}" alt="" />
-			<div class="modal__item__text">
-				<h3>${item.title}</h3>
-				<p>${item.price}K</p>
-			</div>
-		</div>
-		`;
+		const cartItem = document.createElement("div");
+		cartItem.classList.add("cart-item");
+		cartItem.innerHTML = `
+				<img src="${item.img}" alt="" />
+				<div class="cart-item__text">
+					<h3>${item.title}</h3>
+					<p>${item.price} K</p>
+				</div>
+				<button class="remove">Remove</button>
+			`;
+		cartList.appendChild(cartItem);
 	});
 };
+
+// on remove button click, remove the item from the cartArray and localStorage
+cartList.addEventListener("click", (e) => {
+	if (e.target.classList.contains("remove")) {
+		const item = e.target.closest(".cart-item");
+		const title = item.querySelector("h3").innerHTML;
+		const index = cartArray.findIndex((item) => item.title === title);
+		cartArray.splice(index, 1);
+		localStorage.setItem("cart", JSON.stringify(cartArray));
+		item.remove();
+		// change the src of the button to "img/icon_cart-card.svg"
+		const button = document.querySelector(`[data-name="${title}"]`);
+		button.classList.remove("clicked");
+		cartCountElement.innerHTML = cartArray.length;
+		if (cartArray.length === 0) {
+			cartCountElement.remove();
+		}
+	}
+});
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
