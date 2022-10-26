@@ -12,6 +12,7 @@ cart.forEach((button) => {
 		document.querySelector(".hero__search").appendChild(cartCountElement);
 		// on every click, toggle "clicked" class
 		button.classList.toggle("clicked");
+		// if the button has the class of "clicked", change the src to img/clicked.png
 		const cardHtml = e.target.closest("[data-link]").innerHTML;
 		// find "h3" inside const h3 using regex
 		const regexTxt = /<h3>(.*?)<\/h3>/;
@@ -22,18 +23,25 @@ cart.forEach((button) => {
 		// find "p" inside const h3 using regex
 		const regexPrice = /<p>(.*?)<\/p>/;
 		const cardPrice = cardHtml.match(regexPrice)[1];
-		console.log(cardPrice);
-		// if the button has the class of "clicked", change the src to img/clicked.png
+		// create a new object with the title, image and price
+		const cardObject = {
+			title: cardTitle,
+			img: cardImg,
+			price: cardPrice,
+		};
 		if (button.classList.contains("clicked")) {
 			button.src = "img/clicked.png";
+			// push the object to the cartArray
+			cartArray.push(cardObject);
+			// increase the count by 1
 			count++;
 			cartCountElement.innerHTML = +count;
-			// push the previous h3 element to the cartArray array
-			cartArray.push(button.previousSibling);
-			/* 			console.log(cartArray);
-			 */
 		} else {
 			button.src = "img/icon_cart-card.svg";
+			// find the object by title and remove it from the cartArray
+			const index = cartArray.findIndex((item) => item.title === cardTitle);
+			cartArray.splice(index, 1);
+			// decrease the count by 1
 			count--;
 			cartCountElement.innerHTML = +count;
 		}
