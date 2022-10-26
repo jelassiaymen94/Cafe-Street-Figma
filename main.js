@@ -21,9 +21,13 @@ cart.forEach((button) => {
 		// find "img" inside const h3 using regex
 		const regexImg = /<img src="(.*?)"/;
 		const cardImg = cardHtml.match(regexImg)[1];
-		// find "p" inside const h3 using regex
-		const regexPrice = /<p>(.*?)<\/p>/;
-		const cardPrice = cardHtml.match(regexPrice)[1];
+		// find the second "p" inside const h3 using regex and remove <p> and </p> and remove the "K" from the price
+		const regexPrice = /<p>(.*?)<\/p>/g;
+		const cardPrice = cardHtml
+			.match(regexPrice)[1]
+			.replace(/<\/?p>/g, "")
+			.replace("K", "")
+			.replace(" ", "");
 		// create a new object with the title, image and price
 		const cardObject = {
 			title: cardTitle,
@@ -70,8 +74,6 @@ cartArray.forEach((item) => {
 	button.src = "img/clicked.png";
 });
 
-console.log(cartArray);
-
 //* MODAL / POPUP *//
 
 // Get the modal
@@ -83,29 +85,32 @@ const span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 cartCount.onclick = function () {
 	modal.style.display = "block";
+	// insert the cartArray into the modal
+	cartList.innerHTML = "";
 	cartArray.forEach((item) => {
-		console.log(item);
-		const cartItem = document.createElement("div");
-		cartItem.classList.add("cart-item");
-		cartItem.innerHTML = `
-			<img src="${item.img}" alt="${item.title}" />
-			<div class="cart-item__info">
+		cartList.innerHTML += `
+		<div class="modal__item">
+			<img src="${item.img}" alt="" />
+			<div class="modal__item__text">
 				<h3>${item.title}</h3>
-				<p>${item.price}</p>
+				<p>${item.price}K</p>
 			</div>
+		</div>
 		`;
-		cartList.appendChild(cartItem);
 	});
 };
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
 	modal.style.display = "none";
+	// remove the cartArray from the modal
+	cartList.innerHTML = "";
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
 	if (event.target == modal) {
 		modal.style.display = "none";
+		cartList.innerHTML = "";
 	}
 };
