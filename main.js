@@ -113,6 +113,7 @@ cartList.addEventListener("click", (e) => {
 		// change the src of the button to "img/icon_cart-card.svg"
 		const button = document.querySelector(`[data-name="${title}"]`);
 		button.classList.remove("clicked");
+		button.src = "img/icon_cart-card.svg";
 		cartCountElement.innerHTML = cartArray.length;
 		if (cartArray.length === 0) {
 			cartCountElement.remove();
