@@ -2,7 +2,9 @@
 const cart = document.querySelectorAll("#add-to-cart");
 const cartCount = document.querySelector(".cart-count");
 const cartCountElement = document.createElement("p");
+const cartArray = [];
 let count = 0;
+
 // add a click event listener to the buttons with the id of "add-to-cart"
 cart.forEach((button) => {
 	button.addEventListener("click", (e) => {
@@ -10,11 +12,26 @@ cart.forEach((button) => {
 		document.querySelector(".hero__search").appendChild(cartCountElement);
 		// on every click, toggle "clicked" class
 		button.classList.toggle("clicked");
+		const cardHtml = e.target.closest("[data-link]").innerHTML;
+		// find "h3" inside const h3 using regex
+		const regexTxt = /<h3>(.*?)<\/h3>/;
+		const cardTitle = cardHtml.match(regexTxt)[1];
+		// find "img" inside const h3 using regex
+		const regexImg = /<img src="(.*?)"/;
+		const cardImg = cardHtml.match(regexImg)[1];
+		// find "p" inside const h3 using regex
+		const regexPrice = /<p>(.*?)<\/p>/;
+		const cardPrice = cardHtml.match(regexPrice)[1];
+		console.log(cardPrice);
 		// if the button has the class of "clicked", change the src to img/clicked.png
 		if (button.classList.contains("clicked")) {
 			button.src = "img/clicked.png";
 			count++;
 			cartCountElement.innerHTML = +count;
+			// push the previous h3 element to the cartArray array
+			cartArray.push(button.previousSibling);
+			/* 			console.log(cartArray);
+			 */
 		} else {
 			button.src = "img/icon_cart-card.svg";
 			count--;
@@ -23,7 +40,7 @@ cart.forEach((button) => {
 	});
 });
 
-// get all h3 elements inside of the "popular__content__card__title" class
+/* // get all h3 elements inside of the "popular__content__card__title" class
 const popularContentCardTitle = document.querySelectorAll(
 	".popular__content__card__title h3"
 );
@@ -67,15 +84,15 @@ specialCardTitle.forEach((title, index) => {
 // append each object key and value to local storage
 for (const [key, value] of Object.entries(popularContentCardObject)) {
 	localStorage.setItem(key, value);
-}
+} */
 
 //* MODAL / POPUP *//
 
 // Get the modal
-let modal = document.getElementById("myModal");
+const modal = document.getElementById("myModal");
 
 // Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 cartCount.onclick = function () {
