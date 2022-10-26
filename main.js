@@ -2,7 +2,7 @@
 const cart = document.querySelectorAll("#add-to-cart");
 const cartCount = document.querySelector(".cart-count");
 const cartCountElement = document.createElement("p");
-const cartArray = [];
+let cartArray = [];
 let count = 0;
 
 // add a click event listener to the buttons with the id of "add-to-cart"
@@ -33,6 +33,8 @@ cart.forEach((button) => {
 			button.src = "img/clicked.png";
 			// push the object to the cartArray
 			cartArray.push(cardObject);
+			// store the cartArray in localStorage
+			localStorage.setItem("cart", JSON.stringify(cartArray));
 			// increase the count by 1
 			count++;
 			cartCountElement.innerHTML = +count;
@@ -41,13 +43,14 @@ cart.forEach((button) => {
 			// find the object by title and remove it from the cartArray
 			const index = cartArray.findIndex((item) => item.title === cardTitle);
 			cartArray.splice(index, 1);
+			// store the cartArray in localStorage
+			localStorage.setItem("cart", JSON.stringify(cartArray));
 			// decrease the count by 1
 			count--;
 			cartCountElement.innerHTML = +count;
 		}
 	});
 });
-
 /* // get all h3 elements inside of the "popular__content__card__title" class
 const popularContentCardTitle = document.querySelectorAll(
 	".popular__content__card__title h3"
