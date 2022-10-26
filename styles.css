@@ -77,13 +77,6 @@ header::before {
 	position: relative;
 }
 
-.hero__search img:first-child {
-	position: absolute;
-	z-index: 1;
-	left: 12px;
-	top: 6px;
-}
-
 .hero__search input::placeholder {
 	font-size: 1.2rem;
 	line-height: 18px;

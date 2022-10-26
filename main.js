@@ -2,6 +2,7 @@
 const cart = document.querySelectorAll("#add-to-cart");
 const cartCount = document.querySelector(".cart-count");
 const cartCountElement = document.createElement("p");
+const cartList = document.querySelector(".modal-content");
 let cartArray = [];
 let count = 0;
 
@@ -69,51 +70,7 @@ cartArray.forEach((item) => {
 	button.src = "img/clicked.png";
 });
 
-/* // get all h3 elements inside of the "popular__content__card__title" class
-const popularContentCardTitle = document.querySelectorAll(
-	".popular__content__card__title h3"
-);
-const popularContentCardPrice = document.querySelectorAll(
-	".popular__content__card__title p"
-);
-const specialCardTitle = document.querySelectorAll(".special__card__title h3");
-const specialCardPrice = document.querySelectorAll(".special__card__title p");
-// loop through the popularContentCardTitle array and get the text content of each element and push it into the popularContentCardTitleArray
-const popularContentCardTitleArray = [];
-popularContentCardTitle.forEach((title) => {
-	popularContentCardTitleArray.push(title.textContent);
-});
-specialCardTitle.forEach((title) => {
-	popularContentCardTitleArray.push(title.textContent);
-});
-
-const popularContentCardPriceArray = [];
-
-popularContentCardPrice.forEach((price) => {
-	popularContentCardPriceArray.push(price.textContent);
-});
-
-const specialCardPriceArray = [];
-
-specialCardPrice.forEach((price) => {
-	specialCardPriceArray.push(price.textContent);
-});
-
-// associate the popularContentCardTitleArray with the popularContentCardPriceArray into an object
-const popularContentCardObject = {};
-
-popularContentCardTitleArray.forEach((title, index) => {
-	popularContentCardObject[title] = popularContentCardPriceArray[index];
-});
-
-specialCardTitle.forEach((title, index) => {
-	popularContentCardObject[title.textContent] = specialCardPriceArray[index];
-});
-
-// append each object key and value to local storage
-for (const [key, value] of Object.entries(popularContentCardObject)) {
-	localStorage.setItem(key, value);
-} */
+console.log(cartArray);
 
 //* MODAL / POPUP *//
 
@@ -126,6 +83,19 @@ const span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 cartCount.onclick = function () {
 	modal.style.display = "block";
+	cartArray.forEach((item) => {
+		console.log(item);
+		const cartItem = document.createElement("div");
+		cartItem.classList.add("cart-item");
+		cartItem.innerHTML = `
+			<img src="${item.img}" alt="${item.title}" />
+			<div class="cart-item__info">
+				<h3>${item.title}</h3>
+				<p>${item.price}</p>
+			</div>
+		`;
+		cartList.appendChild(cartItem);
+	});
 };
 
 // When the user clicks on <span> (x), close the modal
