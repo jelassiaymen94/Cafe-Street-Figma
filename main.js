@@ -9,7 +9,7 @@ let count = 0;
 cart.forEach((button) => {
 	button.addEventListener("click", (e) => {
 		// append cartCountElement to ".hero__search"
-		document.querySelector(".hero__search").appendChild(cartCountElement);
+		/* document.querySelector(".hero__search").appendChild(cartCountElement); */
 		// on every click, toggle "clicked" class
 		button.classList.toggle("clicked");
 		// if the button has the class of "clicked", change the src to img/clicked.png
@@ -37,7 +37,8 @@ cart.forEach((button) => {
 			localStorage.setItem("cart", JSON.stringify(cartArray));
 			// increase the count by 1
 			count++;
-			cartCountElement.innerHTML = +count;
+			//
+			cartCountElement.innerHTML = cartArray.length;
 		} else {
 			button.src = "img/icon_cart-card.svg";
 			// find the object by title and remove it from the cartArray
@@ -47,10 +48,27 @@ cart.forEach((button) => {
 			localStorage.setItem("cart", JSON.stringify(cartArray));
 			// decrease the count by 1
 			count--;
-			cartCountElement.innerHTML = +count;
+			cartCountElement.innerHTML = cartArray.length;
+			if (cartArray.length === 0) {
+				cartCountElement.remove();
+			}
 		}
 	});
 });
+// if localStorage has a cart, set the cartArray to the localStorage cart
+if (localStorage.getItem("cart")) {
+	cartArray = JSON.parse(localStorage.getItem("cart"));
+	cartCountElement.innerHTML = cartArray.length;
+	document.querySelector(".hero__search").appendChild(cartCountElement);
+}
+
+// if the cartArray has an item, change the src of the button to "img/clicked.png"
+cartArray.forEach((item) => {
+	const button = document.querySelector(`[data-name="${item.title}"]`);
+	button.classList.add("clicked");
+	button.src = "img/clicked.png";
+});
+
 /* // get all h3 elements inside of the "popular__content__card__title" class
 const popularContentCardTitle = document.querySelectorAll(
 	".popular__content__card__title h3"
