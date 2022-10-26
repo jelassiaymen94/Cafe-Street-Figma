@@ -35,7 +35,7 @@ header::before {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
 }
 
 .hero__content nav ul {
@@ -426,4 +426,11 @@ header::before {
 #add-to-cart {
 	width: 43px;
 	height: 43px;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	width: 80%;
 }
