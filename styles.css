@@ -486,7 +486,7 @@ header::before {
 }
 
 .cart-item table tr td img {
-	width: 100px;
+	width: 200px;
 }
 
 .cart-item table tr td h3 {
@@ -496,6 +496,9 @@ header::before {
 	letter-spacing: 0.04em;
 	color: #2f2105;
 	margin-bottom: 0.8rem;
+}
+.cart-item table tr td .remove {
+	width: 30px;
 }
 
 .cart-item table tr td p {

@@ -107,7 +107,7 @@ cartCount.onclick = function () {
 				<td><h3>${item.title}</h3></td>
 				<td><p>${item.price}K</p></td>
 				<td><input type="number" value="1" min="0" /></td>
-				<td><span class="remove close">&times;</span></td>
+				<td><img class= "remove" src="img/shopping-cart.png" alt=""/></td>
 			</tr>
 		</table>
 		`;
@@ -119,6 +119,10 @@ cartCount.onclick = function () {
 cartList.addEventListener("click", (e) => {
 	if (e.target.classList.contains("remove")) {
 		const item = e.target.closest(".cart-item");
+		// hide modal if cartArray is empty
+		if (cartArray.length === 1) {
+			modal.style.display = "none";
+		}
 		const title = item.querySelector("h3").innerHTML;
 		const index = cartArray.findIndex((item) => item.title === title);
 		cartArray.splice(index, 1);
