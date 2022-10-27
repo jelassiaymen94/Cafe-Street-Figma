@@ -88,19 +88,29 @@ const span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 cartCount.onclick = function () {
-	modal.style.display = "block";
+	if (localStorage.getItem("cart").length > 2) {
+		console.log(localStorage.getItem("cart").length);
+		modal.style.display = "block";
+	} else {
+		alert("Your cart is empty");
+	}
 	// insert the cartArray into the modal and add a remove button
 	cartArray.forEach((item) => {
 		const cartItem = document.createElement("div");
 		cartItem.classList.add("cart-item");
+		// add the title, image and price to the cartItem in a table format with a remove button and a quantity input
+
 		cartItem.innerHTML = `
-				<img src="${item.img}" alt="" />
-				<div class="cart-item__text">
-					<h3>${item.title}</h3>
-					<p>${item.price} K</p>
-				</div>
-				<button class="remove">Remove</button>
-			`;
+		<table>
+			<tr>
+				<td><img src="${item.img}" alt="${item.title}"></td>
+				<td><h3>${item.title}</h3></td>
+				<td><p>${item.price}K</p></td>
+				<td><input type="number" value="1" min="0" /></td>
+				<td><span class="remove close">&times;</span></td>
+			</tr>
+		</table>
+		`;
 		cartList.appendChild(cartItem);
 	});
 };

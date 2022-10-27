@@ -463,3 +463,49 @@ header::before {
 	text-decoration: none;
 	cursor: pointer;
 }
+
+.cart-item table {
+	width: 100%;
+}
+
+.cart-item table tr {
+	border-bottom: 1px solid #ccc;
+}
+
+.cart-item table tr td {
+	padding: 10px 0;
+}
+
+.cart-item table tr td img {
+	width: 100px;
+}
+
+.cart-item table tr td h3 {
+	font-size: 1.8rem;
+	font-weight: 600;
+	line-height: 2.7rem;
+	letter-spacing: 0.04em;
+	color: #2f2105;
+	margin-bottom: 0.8rem;
+}
+
+.cart-item table tr td p {
+	font-weight: 400;
+	font-size: 1.8rem;
+	line-height: 2.7rem;
+	letter-spacing: 0.04em;
+	color: #7e7d7a;
+	margin-bottom: 0.8rem;
+}
+
+.cart-item table tr td button {
+	padding: 1rem 2.4rem;
+	background: #2f2105;
+	border-radius: 3.3rem;
+	font-weight: 700;
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	color: #f4ae26;
+	cursor: pointer;
+}
+
