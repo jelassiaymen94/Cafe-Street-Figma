@@ -67,6 +67,7 @@ header::before {
 	border-radius: 5.4rem;
 	filter: drop-shadow(6px 2px 24px rgba(0, 0, 0, 0.13));
 	border: 0;
+	margin-top: 1.5rem;
 }
 
 .hero__search input:focus {
@@ -75,6 +76,12 @@ header::before {
 
 .hero__search__input {
 	position: relative;
+}
+
+.hero__search__input img {
+	position: relative;
+	top: 4px;
+	right: 15px;
 }
 
 .hero__search input::placeholder {
@@ -425,7 +432,9 @@ header::before {
 	position: fixed;
 	top: 0;
 	z-index: 99;
-	width: 80vw;
+	width: 80%;
+	background-color: rgba(246, 235, 218, 0.7);
+	border-radius: 25px;
 }
 
 .modal {
@@ -508,4 +517,3 @@ header::before {
 	color: #f4ae26;
 	cursor: pointer;
 }
-
