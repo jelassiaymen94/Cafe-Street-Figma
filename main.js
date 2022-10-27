@@ -53,6 +53,9 @@ cart.forEach((button) => {
 			localStorage.setItem("cart", JSON.stringify(cartArray));
 			// decrease the count by 1
 			count--;
+			if (count < 0) {
+				count = 0;
+			}
 			cartCountElement.innerHTML = cartArray.length;
 			if (cartArray.length === 0) {
 				cartCountElement.remove();

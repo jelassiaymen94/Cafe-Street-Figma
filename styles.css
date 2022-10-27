@@ -425,7 +425,7 @@ header::before {
 	position: fixed;
 	top: 0;
 	z-index: 99;
-	width: 80%;
+	width: 80vw;
 }
 
 .modal {
