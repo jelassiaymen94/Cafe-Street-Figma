@@ -10,7 +10,7 @@ let count = 0;
 cart.forEach((button) => {
 	button.addEventListener("click", (e) => {
 		// append cartCountElement to ".hero__search"
-		/* document.querySelector(".hero__search").appendChild(cartCountElement); */
+		document.querySelector(".hero__search").appendChild(cartCountElement);
 		// on every click, toggle "clicked" class
 		button.classList.toggle("clicked");
 		// if the button has the class of "clicked", change the src to img/clicked.png
@@ -28,6 +28,7 @@ cart.forEach((button) => {
 			.replace(/<\/?p>/g, "")
 			.replace("K", "")
 			.replace(" ", "");
+		console.log(cardPrice);
 		// create a new object with the title, image and price
 		const cardObject = {
 			title: cardTitle,
@@ -132,8 +133,8 @@ span.onclick = function () {
 };
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-	if (event.target == modal) {href="/"
+document.onclick = function (event) {
+	if (event.target == modal) {
 		modal.style.display = "none";
 		cartList.innerHTML = "";
 	}
