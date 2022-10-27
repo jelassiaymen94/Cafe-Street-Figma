@@ -498,6 +498,7 @@ header::before {
 	margin-bottom: 0.8rem;
 }
 .cart-item table tr td .remove {
+	cursor: pointer;
 	width: 30px;
 }
 
