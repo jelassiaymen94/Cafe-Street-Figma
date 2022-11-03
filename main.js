@@ -28,7 +28,6 @@ cart.forEach((button) => {
 			.replace(/<\/?p>/g, "")
 			.replace("K", "")
 			.replace(" ", "");
-		console.log(cardPrice);
 		// create a new object with the title, image and price
 		const cardObject = {
 			title: cardTitle,
@@ -89,7 +88,6 @@ const span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 cartCount.onclick = function () {
 	if (localStorage.getItem("cart").length > 2) {
-		console.log(localStorage.getItem("cart").length);
 		modal.style.display = "block";
 	} else {
 		alert("Your cart is empty");
